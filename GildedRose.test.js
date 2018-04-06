@@ -9,7 +9,9 @@ describe("Aged Brie", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Aged Brie", 24, 8);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 
   test("When the aged brie quality is greater than 50, the quality should remain unchanged and sellin should decrease by 1", () => {
@@ -19,7 +21,9 @@ describe("Aged Brie", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Aged Brie", 24, 70);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 
   test("When the aged brie sellin is less than or equal to 0 and the quality is less than 49, the sellin should decrease by 1 and the quality should increase by 2", () => {
@@ -29,7 +33,9 @@ describe("Aged Brie", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Aged Brie", -1, 50);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
   test("When the aged brie sellin is less than or equal to 0 and the quality is 49, the sellin should decrease by 1 and the quality should increase by 1", () => {
     const agedBrie = new Item("Aged Brie", 0, 49);
@@ -38,7 +44,9 @@ describe("Aged Brie", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Aged Brie", -1, 50);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
   test("When the aged brie sellin is less than or equal to 0 and the quality is 50 or greater, the sellin should decrease by 1 and the quality should remain unchanged", () => {
     const agedBrie = new Item("Aged Brie", 0, 55);
@@ -47,7 +55,9 @@ describe("Aged Brie", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Aged Brie", -1, 55);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 });
 
@@ -59,7 +69,9 @@ describe("Sulfuras, Hand of Ragnaros", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Sulfuras, Hand of Ragnaros", 0, 49);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 
   test("When the quality is less than or equal to 0, the quality remains unchanged", () => {
@@ -69,7 +81,9 @@ describe("Sulfuras, Hand of Ragnaros", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Sulfuras, Hand of Ragnaros", 0, -1);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 
   test("When the quality is less than or equal to 0, the quality remains unchanged", () => {
@@ -79,7 +93,9 @@ describe("Sulfuras, Hand of Ragnaros", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item("Sulfuras, Hand of Ragnaros", 10, 0);
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 });
 
@@ -91,7 +107,13 @@ describe("Backstage Passes", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item(
+      "Backstage passes to a TAFKAL80ETC concert",
+      14,
+      46
+    );
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 
   test("When sellin is greater than 5 and less than 11 and quality is less than 50 for Backstage passes to a TAFKAL80ETC concert, the sellin should decrease by 1 and the quality should increase by 2", () => {
@@ -101,7 +123,13 @@ describe("Backstage Passes", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item(
+      "Backstage passes to a TAFKAL80ETC concert",
+      7,
+      47
+    );
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 
   test("When sellin is less than 6 and quality is less than 50 for Backstage passes to a TAFKAL80ETC concert, the sellin should decrease by 1 and the quality should increase by 3", () => {
@@ -111,6 +139,12 @@ describe("Backstage Passes", () => {
 
     const updatedItem = shop.updateQuality();
 
-    console.log(updatedItem);
+    const expectedItem = new Item(
+      "Backstage passes to a TAFKAL80ETC concert",
+      3,
+      48
+    );
+
+    expect(updatedItem).toEqual([expectedItem]);
   });
 });
